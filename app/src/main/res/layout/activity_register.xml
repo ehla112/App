@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+
+<TextView
+        android:id="@+id/tvRegisterTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvRegisterTitle"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="397dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etUser"
+        android:inputType="text"
+        android:padding="12dp"
+      />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="399dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etName"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="396dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etPassword"
+        android:inputType="textPassword"
+        android:padding="12dp"
+     />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="396dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etEmail"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etPhone"
+        android:inputType="phone"
+        android:padding="12dp"
+      />
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="399dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/etAddress"
+        android:inputType="textPostalAddress"
+        android:padding="12dp"
+         />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/etDatosMascota"
+        android:textStyle="bold"
+         />
+
+    <EditText
+        android:id="@+id/etNombreMascota"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/etNombreMascota" />
+
+    <EditText
+        android:id="@+id/etTipoMascota"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:hint="@string/etTipoMascota"
+         />
+
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="392dp"
+        android:layout_height="48dp"
+        android:hint="@string/etEdad"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etRaza"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/etRaza"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/etPeso"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/etPeso"
+        android:inputType="numberDecimal"
+       />
+
+
+    <Button
+        android:id="@+id/btnSaveUser"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btnSaveUser" />
+</LinearLayout>

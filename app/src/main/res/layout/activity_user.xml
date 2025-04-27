@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="24dp">
+
+            <!-- Encabezado -->
+            <TextView
+                android:id="@+id/tvTituloUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titulo_info_usuario"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Datos del usuario -->
+            <EditText
+                android:id="@+id/etNombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/hint_nombre"
+                android:enabled="false"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etCedula"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/hint_cedula"
+                android:enabled="false"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/hint_correo"
+                android:enabled="false"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="24dp"
+                android:enabled="false"
+                android:hint="@string/hint_telefono" />
+
+            <!-- Botones centrados -->
+            <Button
+                android:id="@+id/btnActualizarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_actualizar"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnEliminarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_eliminar_usuario"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

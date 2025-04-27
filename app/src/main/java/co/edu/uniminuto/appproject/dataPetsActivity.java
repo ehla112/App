@@ -1,0 +1,167 @@
+package co.edu.uniminuto.appproject;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+
+import co.edu.uniminuto.appproject.entities.Mascotas;
+import co.edu.uniminuto.appproject.repository.MascotasRepository;
+
+public class dataPetsActivity extends AppCompatActivity {
+    private Context context;
+    private int idDueno;
+    private EditText etNombreMascota;
+    private EditText etTipoMascota;
+    private EditText etEdad;
+    private EditText etRaza;
+    private EditText etPeso;
+    private EditText etStatus;
+    private EditText etIdMascota;
+    private ListView lvDataPets;
+    private int idMascota;
+    private String nombreMascota;
+    private String tipoMascota;
+    private String edad;
+    private String raza;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_data_pets);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        begin();
+        listData(findViewById(R.id.main));
+        this.lvDataPets.setOnItemClickListener(this::setOnItemClick);
+
+
+
+    }
+    private void setOnItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Mascotas selected = (Mascotas) parent.getItemAtPosition(position);
+        idMascota = selected.getIdMascota();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Opciones");
+        builder.setItems(new String[]{"Actualizar", "Eliminar"}, (dialog, which) -> {
+            if (which == 0) {
+                PopUpActualizar(view);
+            } else if (which == 1) {
+                eliminarMascota(view);
+
+
+            }
+
+        });
+        builder.show();
+
+
+
+    }
+
+    private void PopUpActualizar(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Actualizar");
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.layout_actualizar, null);
+        builder.setView(dialogView);
+        builder.setCancelable(false);
+        EditText etNombreMascota = dialogView.findViewById(R.id.etNameMascota);
+        EditText etTipoMascota = dialogView.findViewById(R.id.etTipo);
+        EditText etRaza = dialogView.findViewById(R.id.etRaza);
+        EditText etEdad = dialogView.findViewById(R.id.etEdad);
+        EditText etPeso = dialogView.findViewById(R.id.etPesoUp);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("Actualizar", (dialog, which) -> {
+            MascotasRepository mascotasRepository = new MascotasRepository(view, context);
+            Mascotas mascotas = new Mascotas();
+            mascotas.setIdMascota(idMascota);
+            mascotas.setNombreMascota(etNombreMascota.getText().toString());
+            mascotas.setTipoMascota(etTipoMascota.getText().toString());
+            mascotas.setRaza(etRaza.getText().toString());
+            mascotas.setEdad(etEdad.getText().toString());
+            mascotas.setPeso(Double.parseDouble(etPeso.getText().toString()));
+            mascotasRepository.updateMascotas(mascotas);
+            listData(view);
+            Toast.makeText(this, "Mascota actualizada", Toast.LENGTH_LONG).show();
+
+        });
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
+            dialog.dismiss();
+        });
+        builder.show();
+
+
+
+
+
+
+    }
+
+    private void listData(View view){
+        idDueno= getIntent().getIntExtra("idDueno", -1);
+
+        if(idDueno != -1){
+            MascotasRepository mascotasRepository = new MascotasRepository(view,context);
+
+            ArrayList<Mascotas> list = mascotasRepository.getAllMascotas(idDueno);
+
+            if(list.size()>0){
+                ArrayAdapter<Mascotas> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+                lvDataPets.setAdapter(arrayAdapter);
+
+            }else{
+                Toast.makeText(this, "No se encontraron mascotas", Toast.LENGTH_LONG).show();
+            }
+
+
+        }else{
+            Toast.makeText(this, "id no valido", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+    private  void eliminarMascota(View view) {
+        MascotasRepository mascotasRepository = new MascotasRepository(view, context);
+        boolean correcto = mascotasRepository.deleteMascotas(idMascota);
+        if (correcto) {
+            listData(view);
+            Toast.makeText(this, "Mascota eliminada", Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    private void begin() {
+        this.context = this;
+        this.etNombreMascota = findViewById(R.id.etNombreMascota);
+        this.etTipoMascota = findViewById(R.id.etTipoMascota);
+        this.etEdad = findViewById(R.id.etEdad);
+        this.etRaza = findViewById(R.id.etRaza);
+        this.etPeso = findViewById(R.id.etPeso);
+        this.idMascota = getIntent().getIntExtra("idMascota", 0);
+        this.lvDataPets = findViewById(R.id.lvDataPets);
+
+
+
+
+    }
+}

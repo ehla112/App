@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">appProject</string>
+    <string name="tvInicio">Iniciar sesion</string>
+    <string name="etUsername">Usuario</string>
+    <string name="etPassword">Contraseña</string>
+    <string name="btnIniciar">Iniciar sesion</string>
+    <string name="btnRegister">Registrarse</string>
+    <string name="tvRegisterTitle">Registrar Usuario</string>
+    <string name="etUser">Usuario</string>
+    <string name="etName">Nombre completo</string>
+    <string name="etEmail">Correo electrónico</string>
+    <string name="etPhone">Teléfono</string>
+    <string name="etAddress">Dirección</string>
+    <string name="btnSaveUser">Registrar</string>
+    <string name="tvHome">Bienvenido</string>
+    <string name="info_humano">Información del dueño</string>
+    <string name="info_mascota">Información de la mascota</string>
+    <string name="citas_medicas">Citas médicas</string>
+    <string name="vacunas">Vacunas</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="titulo_info_usuario">Información del usuario</string>
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_cedula">Cédula</string>
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="btn_actualizar">Actualizar</string>
+    <string name="btn_eliminar_usuario">Eliminar usuario</string>
+    <!-- Hoja - Vacunas -->
+    <string name="tvTituloVacunas">Registro de Vacunas</string>
+    <string name="hint_nombre_vacuna">Nombre de la vacuna</string>
+    <string name="hint_fecha_vacuna">Fecha de aplicación</string>
+    <string name="hint_tipo_vacuna">Tipo de vacuna</string>
+    <string name="btnAddvacuna">Agregar Vacuna</string>
+    <string name="btnActvacuna">Actualizar Vacuna</string>
+    <string name="btnDeletevacuna">Eliminar Vacuna</string>
+
+    <string name="etDatosMascota">Datos de la Mascota</string>
+    <string name="etNombreMascota">Nombre de la mascota</string>
+    <string name="etTipoMascota">Tipo (Ej: perro, gato...)</string>
+    <string name="etRaza">Raza</string>
+    <string name="etPeso">Peso</string>
+    <string name="etEdad">Edad</string>
+
+    <string name="tvinfoMascota">Información de la Mascota</string>
+    <string name="hint_nameMascota">Nombre de la mascota</string>
+    <string name="hint_tipo">Tipo</string>
+    <string name="hint_raza">Raza</string>
+    <string name="hint_edad">Edad</string>
+    <string name="hint_peso">Peso</string>
+    <string name="btneditMascota">Editar Mascota</string>
+    <string name="btnDeleteMascota">Eliminar Mascota</string>
+    <string name="btnAddMascota">Agregar Mascota</string>
+
+
+</resources>
