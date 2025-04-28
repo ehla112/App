@@ -63,10 +63,6 @@ public class UserRepository {
             values.put("use_address", user.getAddress());
             values.put("use_status", "1");
             newID=sqLiteDatabase.insert("users", null, values);
-            long response = sqLiteDatabase.insert("users", null, values);
-            String message = (response >=1) ? "se registro correctamente" :
-                    "no se registro correctamente";
-            Snackbar.make(this.view, message, Snackbar.LENGTH_LONG).show();
             sqLiteDatabase.close();
 
         }

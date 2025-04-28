@@ -1,11 +1,13 @@
 package co.edu.uniminuto.appproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,6 +35,7 @@ public class dataPetsActivity extends AppCompatActivity {
     private EditText etStatus;
     private EditText etIdMascota;
     private ListView lvDataPets;
+    private Button btnAddMascota;
     private int idMascota;
     private String nombreMascota;
     private String tipoMascota;
@@ -52,8 +55,15 @@ public class dataPetsActivity extends AppCompatActivity {
         begin();
         listData(findViewById(R.id.main));
         this.lvDataPets.setOnItemClickListener(this::setOnItemClick);
+        btnAddMascota.setOnClickListener(this::addMascota);
 
 
+
+    }
+    private void addMascota(View view){
+        Intent intent = new Intent(this, AddMascotaActivity.class);
+        intent.putExtra("idDueno", idDueno);
+        startActivity(intent);
 
     }
     private void setOnItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -172,6 +182,8 @@ public class dataPetsActivity extends AppCompatActivity {
         this.etPeso = findViewById(R.id.etPesoUp);
         this.idMascota = getIntent().getIntExtra("idMascota", 0);
         this.lvDataPets = findViewById(R.id.lvDataPets);
+        this.btnAddMascota = findViewById(R.id.btnAddMascota);
+
 
 
 

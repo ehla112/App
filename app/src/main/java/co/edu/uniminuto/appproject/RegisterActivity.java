@@ -14,6 +14,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import co.edu.uniminuto.appproject.entities.Mascotas;
 import co.edu.uniminuto.appproject.entities.User;
 import co.edu.uniminuto.appproject.repository.MascotasRepository;
@@ -72,14 +74,23 @@ public class RegisterActivity extends AppCompatActivity {
         User user = new User(usuario, nombre, password, email, telefono, direccion, true);
         UserRepository userRepository = new UserRepository(view, context);
         long iddueno= userRepository.insertUser(user);
-        Mascotas mascota = new Mascotas(nombreMascota, tipoMascota, edad, raza, peso, 1, (int)iddueno);
-        MascotasRepository mascotasRepository = new MascotasRepository(view,context);
-        mascotasRepository.insertMascotas(mascota);
-        Intent intent = new Intent(context, ActivityHome.class);
-        intent.putExtra("idDueno", iddueno);
+        if(iddueno !=-1){
+            Mascotas mascota = new Mascotas(nombreMascota, tipoMascota, edad, raza, peso, 1, (int)iddueno);
+            MascotasRepository mascotasRepository = new MascotasRepository(view,context);
+            mascotasRepository.insertMascotas(mascota);
+            Snackbar.make(view, "Usuario registrado", Snackbar.LENGTH_LONG).show();
+            Intent intent = new Intent(context, ActivityHome.class);
+            intent.putExtra("idDueno", (int) iddueno);
 
-        startActivity(intent);
-        finish();
+
+            startActivity(intent);
+            finish();
+
+
+        }else {
+            Snackbar.make(view, "Error al registrar usuario", Snackbar.LENGTH_LONG).show();
+        }
+
     }
     private void capData(){
         this.usuario = etUser.getText().toString();
@@ -113,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-        this.btnSaveUser = findViewById(R.id.btnSaveUser);
+        this.btnSaveUser = findViewById(R.id.btnSaveMascota);
 
 
     }

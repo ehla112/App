@@ -45,6 +45,10 @@ public class ActivityHome extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private void start() {
         btnInfoHumano = findViewById(R.id.btnInfoHumano);

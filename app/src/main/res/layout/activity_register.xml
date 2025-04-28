@@ -72,7 +72,7 @@
         android:padding="12dp"
          />
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvDatosMas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -119,7 +119,7 @@
 
 
     <Button
-        android:id="@+id/btnSaveUser"
+        android:id="@+id/btnSaveMascota"
         android:layout_width="391dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

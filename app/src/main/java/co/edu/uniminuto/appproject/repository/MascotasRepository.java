@@ -18,7 +18,7 @@ import co.edu.uniminuto.appproject.entities.Mascotas;
 import co.edu.uniminuto.appproject.entities.User;
 
 
-public class MascotasRepository {
+public class  MascotasRepository {
     private ManagerDataBase dataBase;
     private View view;
     private Context context;
@@ -57,7 +57,7 @@ public class MascotasRepository {
 
     
         }
-        public ArrayList<Mascotas> getAllMascotas(long idDueno){
+        public ArrayList<Mascotas> getAllMascotas(int idDueno){
             SQLiteDatabase sqLiteDatabase = dataBase.getReadableDatabase();
             String sql = "SELECT * FROM mascotas WHERE mas_status = 1 AND mas_idDueno = ?";
             ArrayList<Mascotas> mascotas = new ArrayList<>();
@@ -116,7 +116,7 @@ public class MascotasRepository {
         boolean correcto = false;
         try{
             String sql = "UPDATE mascotas SET mas_status =0  WHERE mas_idMascota = ?";
-            sqLiteDatabase.execSQL(sql, new String[]{String.valueOf(mascotas.getIdMascota())});
+            sqLiteDatabase.execSQL(sql, new Object[]{idMascota});
             correcto = true;
             Snackbar.make(this.view, "se elimino correctamente", Snackbar.LENGTH_LONG).show();
 

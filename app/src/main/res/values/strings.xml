@@ -46,7 +46,9 @@
     <string name="hint_tipo">Tipo</string>
     <string name="hint_raza">Raza</string>
     <string name="hint_edad">Edad</string>
+    <string name="tvAddMascota">Agregar Mascota</string>"
     <string name="hint_peso">Peso</string>
+    <string name="btnSaveMascota">Guardar</string>
     <string name="btneditMascota">Editar Mascota</string>
     <string name="btnDeleteMascota">Eliminar Mascota</string>
     <string name="btnAddMascota">Agregar Mascota</string>
