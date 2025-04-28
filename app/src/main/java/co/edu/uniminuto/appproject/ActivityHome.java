@@ -40,11 +40,11 @@ public class ActivityHome extends AppCompatActivity {
 
     private void startInfoMascota(View view) {
         Intent intent = new Intent(this, dataPetsActivity.class);
-        intent.putExtra("idDueno", idUsuario);
+        intent.putExtra("idDueno", idDueno);
 
 
         startActivity(intent);
-        Toast.makeText(this, "idDueno enviado: " + idUsuario, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "idDueno enviado: " + idDueno, Toast.LENGTH_SHORT).show();
 
 
     }
