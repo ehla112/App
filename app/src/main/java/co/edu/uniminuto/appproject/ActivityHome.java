@@ -20,6 +20,9 @@ public class ActivityHome extends AppCompatActivity {
     private Button btnCerrarSesion;
     private int idDueno;
 
+    private int idUsuario;
+    private Button btnInfoUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,18 +35,26 @@ public class ActivityHome extends AppCompatActivity {
         });
         start();
         btnInfoMascota.setOnClickListener(this::startInfoMascota);
+        btnInfoHumano.setOnClickListener(this::startInfoUser);
     }
 
     private void startInfoMascota(View view) {
         Intent intent = new Intent(this, dataPetsActivity.class);
-        intent.putExtra("idDueno", idDueno);
+        intent.putExtra("idDueno", idUsuario);
 
 
         startActivity(intent);
-        Toast.makeText(this, "idDueno enviado: " + idDueno, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "idDueno enviado: " + idUsuario, Toast.LENGTH_SHORT).show();
 
 
     }
+    private void startInfoUser(View view) {
+        Intent intent = new Intent(this, UserActivity.class);
+        intent.putExtra("idDueno", idDueno);
+        startActivity(intent);
+        Toast.makeText(this, "idDueno enviado: " + idDueno, Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onResume() {

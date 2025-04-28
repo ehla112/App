@@ -17,7 +17,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:padding="24dp">
 
-            <!-- Encabezado -->
             <TextView
                 android:id="@+id/tvTituloUsuario"
                 android:layout_width="wrap_content"
@@ -28,7 +27,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp" />
 
-            <!-- Datos del usuario -->
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Usuario"
+                android:inputType="textPersonName"
+                android:enabled="false" />
+
             <EditText
                 android:id="@+id/etNombreUsuario"
                 android:layout_width="match_parent"
@@ -38,12 +44,14 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
-                android:id="@+id/etCedula"
+                android:id="@+id/etContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/hint_cedula"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
                 android:enabled="false"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginTop="8dp" />
+
 
             <EditText
                 android:id="@+id/etCorreo"
@@ -57,23 +65,31 @@
                 android:id="@+id/etTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="14dp"
                 android:enabled="false"
                 android:hint="@string/hint_telefono" />
 
-            <!-- Botones centrados -->
+            <EditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="0dp"
+                android:enabled="false"
+                android:hint="Dirección"
+                android:inputType="textPostalAddress" />
+
             <Button
                 android:id="@+id/btnActualizarUsuario"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="@string/btn_actualizar"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="20dp" />
 
             <Button
                 android:id="@+id/btnEliminarUsuario"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:text="@string/btn_eliminar_usuario"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp" />

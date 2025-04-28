@@ -20,9 +20,12 @@
     <string name="cerrar_sesion">Cerrar sesión</string>
     <string name="titulo_info_usuario">Información del usuario</string>
     <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_contrasena">Contrasena</string>
     <string name="hint_cedula">Cédula</string>
     <string name="hint_correo">Correo electrónico</string>
     <string name="hint_telefono">Teléfono</string>
+    <string name="hint_direccion">Dirección</string>
     <string name="btn_actualizar">Actualizar</string>
     <string name="btn_eliminar_usuario">Eliminar usuario</string>
     <!-- Hoja - Vacunas -->
