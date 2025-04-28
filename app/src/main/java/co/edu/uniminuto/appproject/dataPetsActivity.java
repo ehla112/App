@@ -25,8 +25,8 @@ import co.edu.uniminuto.appproject.repository.MascotasRepository;
 public class dataPetsActivity extends AppCompatActivity {
     private Context context;
     private int idDueno;
-    private EditText etNombreMascota;
-    private EditText etTipoMascota;
+    private EditText etNameMascotaUp;
+    private EditText etTipoUp;
     private EditText etEdad;
     private EditText etRaza;
     private EditText etPeso;
@@ -82,24 +82,33 @@ public class dataPetsActivity extends AppCompatActivity {
         builder.setTitle("Actualizar");
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.layout_actualizar, null);
+        EditText etNameMascotaUp = dialogView.findViewById(R.id.etNameMascotaUp);
+        EditText etTipoUp = dialogView.findViewById(R.id.etTipoUp);
+        EditText etRazaUp = dialogView.findViewById(R.id.etRazaUp);
+        EditText etEdadUp = dialogView.findViewById(R.id.etEdadUp);
+        EditText etPesoUp = dialogView.findViewById(R.id.etPesoUp);
+        builder.setView(dialogView);
+        // Obtener los datos de la mascota seleccionada
+        MascotasRepository mascotasRepository = new MascotasRepository(view, context);
+        Mascotas selected = mascotasRepository.getMascotaByID(idMascota);
+        etNameMascotaUp.setText(selected.getNombreMascota());
+        etTipoUp.setText(selected.getTipoMascota());
+        etRazaUp.setText(selected.getRaza());
+        etEdadUp.setText(selected.getEdad());
+        etPesoUp.setText(String.valueOf(selected.getPeso()));
         builder.setView(dialogView);
         builder.setCancelable(false);
-        EditText etNombreMascota = dialogView.findViewById(R.id.etNameMascota);
-        EditText etTipoMascota = dialogView.findViewById(R.id.etTipo);
-        EditText etRaza = dialogView.findViewById(R.id.etRaza);
-        EditText etEdad = dialogView.findViewById(R.id.etEdad);
-        EditText etPeso = dialogView.findViewById(R.id.etPesoUp);
-        builder.setView(dialogView);
 
         builder.setPositiveButton("Actualizar", (dialog, which) -> {
-            MascotasRepository mascotasRepository = new MascotasRepository(view, context);
+
+
             Mascotas mascotas = new Mascotas();
             mascotas.setIdMascota(idMascota);
-            mascotas.setNombreMascota(etNombreMascota.getText().toString());
-            mascotas.setTipoMascota(etTipoMascota.getText().toString());
-            mascotas.setRaza(etRaza.getText().toString());
-            mascotas.setEdad(etEdad.getText().toString());
-            mascotas.setPeso(Double.parseDouble(etPeso.getText().toString()));
+            mascotas.setNombreMascota(etNameMascotaUp.getText().toString());
+            mascotas.setTipoMascota(etTipoUp.getText().toString());
+            mascotas.setRaza(etRazaUp.getText().toString());
+            mascotas.setEdad(etEdadUp.getText().toString());
+            mascotas.setPeso(Double.parseDouble(etPesoUp.getText().toString()));
             mascotasRepository.updateMascotas(mascotas);
             listData(view);
             Toast.makeText(this, "Mascota actualizada", Toast.LENGTH_LONG).show();
@@ -148,15 +157,19 @@ public class dataPetsActivity extends AppCompatActivity {
             Toast.makeText(this, "Mascota eliminada", Toast.LENGTH_LONG).show();
 
         }
+
+
+
     }
+
 
     private void begin() {
         this.context = this;
-        this.etNombreMascota = findViewById(R.id.etNombreMascota);
-        this.etTipoMascota = findViewById(R.id.etTipoMascota);
+        this.etNameMascotaUp = findViewById(R.id.etNameMascotaUp);
+        this.etTipoUp = findViewById(R.id.etTipoUp);
         this.etEdad = findViewById(R.id.etEdad);
-        this.etRaza = findViewById(R.id.etRaza);
-        this.etPeso = findViewById(R.id.etPeso);
+        this.etRaza = findViewById(R.id.etRazaUp);
+        this.etPeso = findViewById(R.id.etPesoUp);
         this.idMascota = getIntent().getIntExtra("idMascota", 0);
         this.lvDataPets = findViewById(R.id.lvDataPets);
 

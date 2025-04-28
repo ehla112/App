@@ -108,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
         this.etNombreMascota = findViewById(R.id.etNombreMascota);
         this.etTipoMascota = findViewById(R.id.etTipoMascota);
         this.etEdad = findViewById(R.id.etEdad);
-        this.etRaza =findViewById(R.id.etRaza);
+        this.etRaza =findViewById(R.id.etRazaUp);
         this.etPeso = findViewById(R.id.etPeso);
 
 

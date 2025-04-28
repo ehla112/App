@@ -128,5 +128,32 @@ public class MascotasRepository {
 
 
         }
+        public Mascotas getMascotaByID(int idMascota){
+        SQLiteDatabase databaseSql = dataBase.getReadableDatabase();
+        Mascotas mascotas = null;
+
+        String sql = "SELECT * FROM mascotas WHERE mas_idMascota = ?";
+        Cursor cursor = databaseSql.rawQuery(sql, new String[]{String.valueOf(idMascota)});
+        if(cursor.moveToFirst()){
+            mascotas = new Mascotas();
+            mascotas.setIdMascota(cursor.getInt(0));
+            mascotas.setNombreMascota(cursor.getString(1));
+            mascotas.setTipoMascota(cursor.getString(2));
+            mascotas.setEdad(String.valueOf(cursor.getInt(3)));
+            mascotas.setRaza(cursor.getString(4));
+            mascotas.setPeso(cursor.getDouble(5));
+            mascotas.setStatus(cursor.getInt(6));
+            mascotas.setIdDueno(cursor.getInt(7));
+            cursor.close();
+            databaseSql.close();
+        }
+        return mascotas;
+    }
+
+
+
+
+
+
 
     }

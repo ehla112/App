@@ -26,11 +26,10 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <EditText
-        android:id="@+id/etNameMascota"
+        android:id="@+id/etNameMascotaUp"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:hint="@string/hint_nameMascota"
-        android:enabled="false"
         android:layout_marginBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,11 +37,10 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <EditText
-        android:id="@+id/etTipo"
+        android:id="@+id/etTipoUp"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:hint="@string/hint_tipo"
-        android:enabled="false"
         android:layout_marginBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -50,11 +48,10 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <EditText
-        android:id="@+id/etRaza"
+        android:id="@+id/etRazaUp"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:hint="@string/hint_raza"
-        android:enabled="false"
         android:layout_marginBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -62,11 +59,10 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <EditText
-        android:id="@+id/etEdad"
+        android:id="@+id/etEdadUp"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:layout_marginBottom="24dp"
-        android:enabled="false"
         android:hint="@string/hint_edad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
